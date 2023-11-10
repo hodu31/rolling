@@ -1,0 +1,151 @@
+/* about section styles */
+/* about section styles */
+.about__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about__left, .about__right {
+    flex: 1;
+    padding: 20px;
+    text-align: center; /* 가운데 정렬 추가 */
+}
+
+.about__image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* optional */
+}
+
+
+/* Style for the form and messages */
+#messageForm {
+    margin-bottom: 20px;
+}
+
+#messageInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#messages {
+    text-align: left;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+
+/* 메시지 영역 스타일 */
+#messages {
+    background-color: #f7f7f7; /* 배경색 */
+    padding: 10px; /* 패딩 */
+    border: 1px solid #ddd; /* 테두리 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    max-height: 300px; /* 최대 높이 */
+    overflow-y: auto; /* 세로 스크롤 */
+}
+
+/* 개별 메시지 스타일 */
+.message {
+    background-color: #e0e0e0; /* 배경색 */
+    padding: 8px 12px; /* 패딩 */
+    border-radius: 15px; /* 모서리 둥글게 */
+    margin-bottom: 10px; /* 아래 여백 */
+    max-width: 60%; /* 최대 너비 */
+    word-wrap: break-word; /* 단어 자동 줄바꿈 */
+}
+
+/* 선생님과 학생의 메시지에 대한 다른 스타일 */
+.message.teacher {
+    background-color: #a0d2eb; /* 배경색 */
+    margin-left: auto; /* 왼쪽 여백 자동 */
+    border-bottom-right-radius: 2px; /* 오른쪽 아래 모서리 둥글게 */
+}
+
+.message.student {
+    background-color: #d1e8a0; /* 배경색 */
+    margin-right: auto; /* 오른쪽 여백 자동 */
+    border-bottom-left-radius: 2px; /* 왼쪽 아래 모서리 둥글게 */
+}
+
+/* 대화 풍선 효과를 위한 작은 삼각형 */
+.message:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+}
+
+.message.teacher:before {
+    right: -10px; /* 오른쪽 위치 조정 */
+    border-left-color: #a0d2eb; /* 왼쪽 테두리 색상 */
+}
+
+.message.student:before {
+    left: -10px; /* 왼쪽 위치 조정 */
+    border-right-color: #d1e8a0; /* 오른쪽 테두리 색상 */
+}
+
+
+/* 반응형 레이아웃을 위한 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+    .about__content {
+        flex-direction: column;
+    }
+
+    .about__left, .about__right {
+        flex: none;
+        margin: 0 auto; /* 작은 화면에서 가운데 정렬 */
+        max-width: 80%; /* 너비 제한 */
+    }
+}
+
+.btn {
+  position: relative;
+  margin: 0 auto;
+  width: var(--btn-w);
+  color: var(--primary);
+  border: .15em solid var(--primary);
+  border-radius: 5em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 2em;
+  cursor: pointer;  
+}
+.dot {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: var(--dot-w);
+  height: 100%;
+  border-radius: 100%;
+  transition: all 300ms ease;
+  display: none;
+}
+.dot:after {
+  content: '';
+  position: absolute;
+  left: calc(50% - .4em);
+  top: -.4em;
+  height: .8em;
+  width: .8em;
+  background: var(--primary);
+  border-radius: 1em;
+  border: .25em solid var(--solid);
+  box-shadow: 0 0 .7em var(--solid),
+        0 0 2em var(--primary);
+}
+.btn:hover .dot,
+.btn:focus .dot {
+  animation: atom 2s infinite linear;
+  display: block;
+}
